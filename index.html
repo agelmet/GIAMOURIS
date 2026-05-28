@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Μανόλης Γιαμούρης - Παιδίατρος</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for consistent coloring */
+        :root {
+            --primary-green: #a8d5b8;
+            --primary-purple: #7f7fd5;
+            --primary-purple-hover: #6a6ac2;
+            --text-dark: #2c3e50;
+            --text-gray: #4a5568;
+            --white: #ffffff;
+            --bg-light: #f4f9f6;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-purple-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(127, 127, 213, 0.4);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--text-dark);
+        }
+
+        .btn-white:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--primary-green);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 250px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(127, 127, 213, 0.75), rgba(127, 127, 213, 0.75)), url('https://raw.githubusercontent.com/agelmet/GIAMOURIS/refs/heads/main/unnamed-11.jpg') center/cover no-repeat;
+            padding: 120px 0;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--primary-green);
+            padding: 80px 0;
+        }
+
+        .about-wrapper {
+            display: flex;
+            align-items: stretch;
+            gap: 40px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-card {
+            flex: 1.5;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-card h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .about-card h2 span {
+            color: var(--primary-purple);
+            display: block;
+        }
+
+        .about-card p {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .about-card .btn {
+            margin-top: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .services-title {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-bottom: 40px;
+        }
+
+        .services-card {
+            background: var(--white);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .services-card p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .services-card img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Reviews & Promise Section */
+        .reviews {
+            background-color: var(--primary-green);
+            padding: 80px 0;
+        }
+
+        .section-header-bordered {
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .section-header-bordered h2 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+        }
+
+        .reviews-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .reviews-image img {
+            border-radius: 12px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .reviews-content {
+            text-align: center;
+        }
+
+        .google-logo {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .g-blue { color: #4285F4; }
+        .g-red { color: #EA4335; }
+        .g-yellow { color: #FBBC05; }
+        .g-green { color: #34A853; }
+
+        .stars {
+            color: #FBBC05;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .reviews-content p {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .promise-section {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .promise-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .promise-section p {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+
+        /* Footer Top (Purple) */
+        .footer-top {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .footer-top h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hours-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hours-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            height: 350px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer Bottom (Green) */
+        .footer-bottom {
+            background-color: var(--primary-green);
+            padding: 50px 0 20px;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-contact .logo img {
+            max-width: 300px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: var(--primary-purple);
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .copyright a {
+            color: var(--primary-purple);
+            font-weight: 700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-wrapper, .reviews-wrapper, .footer-grid {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                max-height: 400px;
+            }
+            .footer-contact {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+            }
+            .contact-info p {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none; /* In a real scenario, implement a hamburger menu */
+            }
+            .services-card, .about-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="#"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/663cf208df9bd175ae8c4ef7.png" alt="Μανόλης Γιαμούρης - Παιδίατρος Logo"></a>
+            </div>
+            <nav class="nav-links">
+                <a href="#about">Ο Παιδίατρος</a>
+                <a href="#services">Υπηρεσίες</a>
+                <a href="#contact">Επικοινωνία</a>
+                <a href="#contact" class="btn">Επικοινωνία</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Καλώς ήρθατε στο ιατρείο του παιδιάτρου<br>Μανόλη Γιαμούρη</h1>
+                <p>Εδώ που η υγεία των παιδιών σας μετράει</p>
+                <a href="#contact" class="btn btn-white">Επικοινωνία</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-wrapper">
+            <div class="about-image">
+                <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/663cee62dc79127fff56d1c4.jpeg" alt="Μανόλης Γιαμούρης Παιδίατρος">
+            </div>
+            <div class="about-card">
+                <h2>Γνωρίστε τον Ειδικό της Παιδιατρικής Περίθαλψης<br><span>Μανόλη Γιαμούρη</span></h2>
+                <p>Ο Μανόλης Γιαμούρης είναι ένας διακεκριμένος παιδίατρος με σημαντική εμπειρία σε ευρύ φάσμα παιδιατρικών υπηρεσιών. Κατέχει απολυτήριο από το Α Λύκειο Πεύκης και αποφοίτησε από την Ιατρική Σχολή του Πανεπιστημίου Αθηνών το 1994. Ακόμη, απέκτησε τίτλο Ιατρικής Ειδικότητας στην Παιδιατρική από το νοσοκομείο Παίδων 'Η Αγία Σοφία'. Έχει εργαστεί σε επίλεκτες ιατρικές θέσεις και διαθέτει εκτεταμένη εμπειρία στην παροχή αρίστης φροντίδας σε παιδιά, με έμφαση στη βρεφική διατροφή και τη διαχείριση αναπνευστικών προβλημάτων.</p>
+                <p>Από το 2000 και μετά, έχει συμμετάσχει σε πάνω από 50 επιστημονικά συνέδρια, εμπλουτίζοντας συνεχώς τις γνώσεις του και διατηρώντας ένα υψηλό επίπεδο κλινικής επάρκειας, με ειδίκευση σε κρίσιμα περιστατικά και βρεφική διατροφή. Επίσης, είναι αξιοσημείωτη η παρουσία του σε επιστημονικές δημοσιεύσεις και σε εργασίες που έχουν παρουσιαστεί σε εθνικά συμπόσια. Επιπλέον, έχει εργαστεί σε ιατρικά τμήματα επειγόντων περιστατικών, αναπτύσσοντας μεγάλη ικανότητα στη διαχείριση κρίσεων.</p>
+                <p>Είναι μέλος του Ιατρικού Συλλόγου Αθηνών και συνεχίζει να είναι ενεργός σε πολλά επιστημονικά συνέδρια, διασφαλίζοντας την υψηλή ποιότητα φροντίδας που προσφέρει και τη συνεχή ανανέωση της ειδικότητάς του στο πεδίο της παιδιατρικής.</p>
+                <a href="#contact" class="btn">Κλείστε Ραντεβού</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="services-title">Αποκτήστε την φροντίδα που αξίζει το παιδί σας</h2>
+            <div class="services-card">
+                <p>Ο κ. Γιαμούρης προσφέρει πλήρες φάσμα παιδιατρικών υπηρεσιών για παιδιά από 0 έως 18 ετών, εξασφαλίζοντας άριστη φροντίδα και ειδικευμένη υποστήριξη για κάθε αναπτυξιακή φάση.</p>
+                <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/663cf30b02dbb07d86d87986.png" alt="Παιδιατρικές Υπηρεσίες">
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header-bordered">
+                <h2>Η Εμπειρία των Πελατών μας Μιλάει από Μόνη της</h2>
+            </div>
+            
+            <div class="reviews-wrapper">
+                <div class="reviews-image">
+                    <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/663cf49eb4785086a42eec3d.png" alt="Χαρούμενα παιδιά">
+                </div>
+                <div class="reviews-content">
+                    <div class="google-logo">
+                        <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>Δείτε δεκάδες 5-αστέρων κριτικές από τους πολύ ευχαριστημένους μας ασθενείς!</p>
+                    <a href="https://maps.google.com/?q=Ανθέων+4,+Αθήνα+111+43" target="_blank" class="btn">Κάντε κλικ εδώ</a>
+                </div>
+            </div>
+
+            <div class="promise-section">
+                <h3>Η Ευημερία των παιδιών σας, η Υπόσχεσή μας</h3>
+                <p>Η υπόσχεση του κ. Γιαμούρη είναι να προσφέρει εξαιρετική παιδιατρική φροντίδα, με πλήρη αφοσίωση στην υγεία και την ευημερία κάθε παιδιού που του εμπιστεύεται τη φροντίδα του. Δεσμεύεται στη συνεχή εκπαίδευση και εξέλιξη των γνώσεων και των δεξιοτήτων του για να διασφαλίζει ότι παρέχει τις πιο προηγμένες και αποτελεσματικές θεραπείες. Έχει δημιουργήσει ένα θερμό και φιλόξενο περιβάλλον, ώστε κάθε μικρός ασθενής να αισθάνεται φροντισμένος και οι γονείς του ασφαλείς.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-top">
+            <div class="container">
+                <h2>Κλείστε Ραντεβού Τώρα</h2>
+                <div class="footer-grid">
+                    <div class="hours-box">
+                        <h3>Ωράριο Λειτουργίας</h3>
+                        <ul class="hours-list">
+                            <li><span>Δευτέρα</span> <span>4:30 - 9:00 μ.μ</span></li>
+                            <li><span>Τρίτη</span> <span>4:30 - 9:00 μ.μ.</span></li>
+                            <li><span>Τετάρτη</span> <span>Κλειστά</span></li>
+                            <li><span>Πέμπτη</span> <span>9:00 π.μ. - 1:00 μ.μ., 4:30 - 9:00 μ.μ.</span></li>
+                            <li><span>Παρασκευή</span> <span>4:30 - 9:00 μ.μ.</span></li>
+                            <li><span>Σάββατο</span> <span>Κλειστά</span></li>
+                            <li><span>Κυριακή</span> <span>Κλειστά</span></li>
+                        </ul>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.208119102434!2d23.735626215321685!3d38.02986427971343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a2cba4a10e2b%3A0x6a0f4439c279c787!2zQW50aGVvbiA0LCBBdGhpbmEgMTExIDQzLCBHcmVlY2U!5e0!3m2!1sen!2sus!4v1715000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-contact">
+                    <div class="logo">
+                        <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/663cf208df9bd175ae8c4ef7.png" alt="Μανόλης Γιαμούρης - Παιδίατρος Logo">
+                    </div>
+                    <div class="contact-info">
+                        <h2>Επικοινωνία</h2><br>
+                        <p><i class="fa-solid fa-envelope"></i> paidiatriogiamouris@gmail.com</p>
+                        <p><i class="fa-solid fa-phone"></i> 2102525660</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Ανθέων 4, Αθήνα 111 43</p>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    © 2026 Μαίρη Σκανδάλη. Όλα τα δικαιώματα διατηρούνται. Designed by <a href="https://advonmedia.com" target="_blank">ADVON MEDIA</a>.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
