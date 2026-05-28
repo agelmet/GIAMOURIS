@@ -658,7 +658,11 @@
         }
 
         @media (max-width: 768px) {
-            .hero { min-height: 70vh; }
+            .hero { 
+                min-height: 70vh; 
+                /* Η εικόνα φόντου είναι πλέον scroll αντί για fixed, διορθώνοντας το πρόβλημα φόρτωσης στα κινητά (ειδικά σε iOS) */
+                background-attachment: scroll; 
+            }
             
             /* Μικρότερος τίτλος στο Hero (Mobile) */
             .hero h1 { font-size: 1.8rem; }
@@ -761,7 +765,7 @@
                         <i class="fa-solid fa-star"></i>
                     </div>
                     <p>Δείτε δεκάδες 5-αστέρων κριτικές από τους πολύ ευχαριστημένους μας ασθενείς!</p>
-                    <a href="https://maps.google.com/?q=Ανθέων+4,+Αθήνα+111+43" target="_blank" class="btn">Κάντε κλικ εδώ</a>
+                    <a href="https://maps.app.goo.gl/DeLx8H61aRbf7zxf9" target="_blank" class="btn">Κάντε κλικ εδώ</a>
                 </div>
             </div>
 
@@ -807,7 +811,7 @@
                         <br>
                         <p><a href="mailto:paidiatriogiamouris@gmail.com"><i class="fa-solid fa-envelope"></i> paidiatriogiamouris@gmail.com</a></p>
                         <p><a href="tel:+302102525660"><i class="fa-solid fa-phone"></i> 2102525660</a></p>
-                        <p><a href="https://maps.google.com/?q=Ανθέων+4,+Αθήνα+111+43" target="_blank"><i class="fa-solid fa-location-dot"></i> Ανθέων 4, Αθήνα 111 43</a></p>
+                        <p><a href="https://maps.app.goo.gl/DeLx8H61aRbf7zxf9" target="_blank"><i class="fa-solid fa-location-dot"></i> Ανθέων 4, Αθήνα 111 43</a></p>
                     </div>
                 </div>
                 
