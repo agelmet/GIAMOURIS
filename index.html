@@ -118,6 +118,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         /* Header Navigation */
@@ -138,7 +139,7 @@
         }
 
         .logo img {
-            max-width: 320px; /* Bigger Logo */
+            max-width: 320px; 
             height: auto;
             transition: transform 0.4s ease;
         }
@@ -183,17 +184,21 @@
         .hero {
             position: relative;
             background: linear-gradient(rgba(127, 127, 213, 0.75), rgba(127, 127, 213, 0.75)), url('https://raw.githubusercontent.com/agelmet/GIAMOURIS/refs/heads/main/unnamed-11.jpg') center/cover no-repeat;
-            min-height: 85vh; /* Bigger Hero Section */
+            min-height: 85vh; 
             display: flex;
             align-items: center;
             padding: 100px 0;
             color: var(--white);
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed; 
         }
 
         .hero-content {
             max-width: 700px;
             animation: fadeInDown 1s ease-out forwards;
+            /* Left aligned on Desktop */
+            text-align: left;
+            margin-right: auto; 
+            margin-left: 0;
         }
 
         @keyframes fadeInDown {
@@ -205,7 +210,7 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             line-height: 1.2;
-            font-weight: 400; /* Unbolded as requested */
+            font-weight: 400; 
             text-shadow: 2px 2px 15px rgba(0,0,0,0.2);
         }
 
@@ -246,7 +251,7 @@
         }
 
         .about-image:hover img {
-            transform: scale(1.08); /* Zoom effect */
+            transform: scale(1.08); 
         }
 
         .about-card {
@@ -256,6 +261,8 @@
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            /* Centered alignment as requested */
+            text-align: center;
         }
 
         .about-card:hover {
@@ -280,7 +287,8 @@
             margin-bottom: 18px;
             color: var(--text-gray);
             font-size: 1.05rem;
-            text-align: justify;
+            /* Centered alignment as requested */
+            text-align: center;
         }
 
         .about-card .btn {
@@ -557,7 +565,7 @@
         }
 
         .footer-contact .logo img {
-            max-width: 400px; /* Bigger Footer Logo */
+            max-width: 400px; 
         }
 
         .contact-info {
@@ -571,7 +579,6 @@
             margin-bottom: 5px;
         }
 
-        /* Contact Links Update */
         .contact-info p {
             margin-bottom: 18px;
             font-size: 1.1rem;
@@ -644,16 +651,38 @@
             .contact-info a:hover {
                 transform: translateY(-3px);
             }
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
         }
 
         @media (max-width: 768px) {
             .hero { min-height: 70vh; }
-            .hero h1 { font-size: 2.4rem; }
+            
+            /* Μικρότερος τίτλος στο Hero (Mobile) */
+            .hero h1 { font-size: 1.8rem; }
+            
             .logo img { max-width: 250px; }
             .footer-contact .logo img { max-width: 300px; }
             .nav-links { display: none; }
             .services-card, .about-card { padding: 40px 25px; }
             .map-container { height: 300px; }
+
+            /* Ενιαίο μέγεθος τίτλων για Mobile */
+            .about-card h2,
+            .services-title,
+            .section-header-bordered h2,
+            .promise-section h3,
+            .footer-top h2 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+            }
+            
+            /* Επαναφορά του μεγέθους "Μανόλη Γιαμούρη" για να είναι ίδιο με τον υπόλοιπο τίτλο */
+            .about-card h2 span {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
